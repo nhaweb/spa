@@ -1,0 +1,46 @@
+{
+  "title": "How the shop page is arranged",
+  "question": "The shop keeps mori's current look. Lock an arrangement, steer, or ask for another set.",
+  "options": [
+    {
+      "id": "request-sheet",
+      "kind": "assigned",
+      "kicker": "THE ROLL",
+      "label": "The request is the shelf",
+      "thesis": "Every product is a choice on one request sheet, so asking is the same gesture as browsing.",
+      "palette": ["#f4f0e6", "#2a2622", "#1f3d32", "#e6dfd2"],
+      "materials": ["warm paper", "hairline rules"],
+      "viewport": "One inset sheet: three groups of product choices, then name, phone, and Gửi yêu cầu along the bottom.",
+      "risk": "Reads as a form. A guest who wanted to linger over products gets little to look at.",
+      "html": ".impeccable/mocks/decision/request-sheet.html"
+    },
+    {
+      "id": "gifts-forward",
+      "kind": "dealt",
+      "label": "Gifts on the counter",
+      "thesis": "Gift sets lead, because they can leave the studio without a treatment. Face and body wait in the next band.",
+      "palette": ["#f4f0e6", "#2a2622", "#1f3d32", "#e6dfd2"],
+      "materials": ["warm paper", "hairline rules"],
+      "viewport": "One gift set fills the view with its price and the request fields on it. Face and body begin as a ruled list at the bottom edge.",
+      "risk": "Puts gifts ahead of face and body, which the catalog treats as equals.",
+      "html": ".impeccable/mocks/decision/gifts-forward.html"
+    },
+    {
+      "id": "slip-then-shelf",
+      "kind": "dealt",
+      "label": "Slip, then the shelf",
+      "thesis": "The request sits first as a short slip. The grouped shelf explains the products underneath.",
+      "palette": ["#f4f0e6", "#2a2622", "#1f3d32", "#e6dfd2"],
+      "materials": ["warm paper", "hairline rules"],
+      "viewport": "A full-width slip with name, phone, product, and send. The face shelf starts immediately below as its own section.",
+      "risk": "The shelf is what you came to browse, and it begins only after the form.",
+      "html": ".impeccable/mocks/decision/slip-then-shelf.html"
+    }
+  ],
+  "reroll": true,
+  "steer": true,
+  "buildPath": {
+    "value": "code",
+    "toggle": false
+  }
+}

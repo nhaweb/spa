@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>The request is the shelf</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 900px; overflow: hidden; background: #f4f0e6; color: #2a2622; font-family: "Helvetica Neue", Arial, sans-serif; }
+  .sheet { height: 900px; padding: 28px 48px 36px; display: flex; flex-direction: column; }
+  header { display: flex; align-items: baseline; justify-content: space-between; }
+  .mark { font-family: Georgia, "Times New Roman", serif; font-size: 28px; letter-spacing: -0.04em; }
+  .mark i { color: #1f3d32; font-style: normal; }
+  nav { display: flex; gap: 28px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  nav b { font-weight: 500; border-bottom: 1px solid #2a2622; padding-bottom: 3px; }
+  .frame { margin-top: 22px; flex: 1; border: 1px solid #2a2622; padding: 28px 32px 24px; display: flex; flex-direction: column; }
+  .kicker { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8a8175; }
+  h1 { margin-top: 8px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 72px; line-height: 0.9; letter-spacing: -0.045em; }
+  h1 em { font-weight: 300; font-style: italic; }
+  .groups { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; flex: 1; }
+  .groups h2 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a8175; padding-bottom: 8px; border-bottom: 1px solid #2a2622; }
+  .row { display: grid; grid-template-columns: 18px 1fr auto; gap: 12px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #d9d2c4; }
+  .dot { width: 11px; height: 11px; border: 1px solid #2a2622; border-radius: 50%; display: inline-block; }
+  .row.on .dot { background: #1f3d32; border-color: #1f3d32; }
+  .name { font-family: Georgia, "Times New Roman", serif; font-size: 26px; letter-spacing: -0.03em; }
+  .price { font-size: 14px; color: #5c564e; }
+  .slip { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr auto; gap: 28px; align-items: end; }
+  label { display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a8175; }
+  .line { margin-top: 8px; border-bottom: 1px solid #2a2622; height: 36px; font-family: Georgia, serif; font-size: 22px; padding-top: 6px; }
+  button { background: #1f3d32; color: #f4f0e6; border: 0; padding: 16px 22px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div class="mark">mori<i>.</i></div>
+      <nav><span>Studio</span><b>Cửa hàng</b><span>Đặt lịch</span></nav>
+    </header>
+    <div class="frame">
+      <p class="kicker">Cửa hàng · Nội dung mẫu</p>
+      <h1>Gửi một yêu cầu.<br><em>Chọn món, để lại tên.</em></h1>
+      <div class="groups">
+        <section>
+          <h2>Mặt</h2>
+          <div class="row on"><span class="dot"></span><span class="name">Sữa rửa mặt gạo</span><span class="price">320.000đ</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Serum nha đam</span><span class="price">480.000đ</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Mặt nạ đất sét</span><span class="price">390.000đ</span></div>
+        </section>
+        <section>
+          <h2>Cơ thể</h2>
+          <div class="row"><span class="dot"></span><span class="name">Dầu oải hương</span><span class="price">520.000đ</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Muối tắm thảo mộc</span><span class="price">280.000đ</span></div>
+        </section>
+        <section>
+          <h2>Quà</h2>
+          <div class="row"><span class="dot"></span><span class="name">Hộp quà da mặt</span><span class="price">890.000đ</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Thẻ liệu trình</span><span class="price">1.500.000đ</span></div>
+          <div class="row"><span class="dot"></span><span class="name">Bộ trà thư giãn</span><span class="price">450.000đ</span></div>
+        </section>
+      </div>
+      <form class="slip">
+        <label>Tên<input class="line" value="Lan Anh" readonly></label>
+        <label>Số điện thoại<input class="line" value="0901 234 567" readonly></label>
+        <button type="button">Gửi yêu cầu</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

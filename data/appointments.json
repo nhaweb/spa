@@ -1,0 +1,54 @@
+[
+  {
+    "id": "apt_1792490443515_cpk551",
+    "serviceSlug": "glow-nhanh",
+    "serviceName": "Glow nhanh",
+    "startsAt": "2026-10-20T10:30:00.000Z",
+    "customerName": "Nguyen An",
+    "customerPhone": "0901234567",
+    "note": "demo",
+    "status": "moi",
+    "ownerNote": "",
+    "createdAt": "2026-10-20T10:00:43.515Z"
+  },
+  {
+    "id": "apt_1792515174046_pe8wnv",
+    "serviceSlug": "tay-te-bao-co-the",
+    "serviceName": "Tẩy tế bào cơ thể",
+    "startsAt": "2026-10-21T03:00:00.000Z",
+    "customerName": "zxc",
+    "customerPhone": "0389137843",
+    "note": "zxczxc",
+    "status": "moi",
+    "ownerNote": "",
+    "createdAt": "2026-10-20T16:52:54.046Z"
+  },
+  {
+    "id": "apt_1792515439838_2may52",
+    "serviceSlug": "cham-soc-da-signature",
+    "serviceName": "Chăm sóc da signature · Glow nhanh",
+    "services": [
+      {
+        "slug": "cham-soc-da-signature",
+        "name": "Chăm sóc da signature",
+        "durationMin": 75,
+        "priceVnd": 890000
+      },
+      {
+        "slug": "glow-nhanh",
+        "name": "Glow nhanh",
+        "durationMin": 45,
+        "priceVnd": 590000
+      }
+    ],
+    "durationMin": 120,
+    "priceVnd": 1480000,
+    "startsAt": "2026-10-22T07:30:00.000Z",
+    "customerName": "Viet Bui",
+    "customerPhone": "+84389137843",
+    "note": "",
+    "status": "moi",
+    "ownerNote": "",
+    "createdAt": "2026-10-20T16:57:19.838Z"
+  }
+]

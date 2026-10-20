@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>Slip, then the shelf</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 900px; overflow: hidden; background: #f4f0e6; color: #2a2622; font-family: "Helvetica Neue", Arial, sans-serif; }
+  header { display: flex; align-items: baseline; justify-content: space-between; padding: 26px 48px 0; }
+  .mark { font-family: Georgia, "Times New Roman", serif; font-size: 28px; letter-spacing: -0.04em; }
+  .mark i { color: #1f3d32; font-style: normal; }
+  nav { display: flex; gap: 28px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  nav b { font-weight: 500; border-bottom: 1px solid #2a2622; padding-bottom: 3px; }
+  .slip { margin: 22px 48px 0; background: #e6dfd2; padding: 26px 32px 28px; }
+  .kicker { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8a8175; }
+  .slip-row { margin-top: 14px; display: grid; grid-template-columns: 1.3fr 1fr 1fr auto; gap: 22px; align-items: end; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 48px; letter-spacing: -0.04em; line-height: 0.95; }
+  label { display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6e675e; }
+  .line { margin-top: 8px; border-bottom: 1px solid #2a2622; min-height: 36px; font-family: Georgia, serif; font-size: 22px; padding-top: 4px; }
+  button { background: #1f3d32; color: #f4f0e6; border: 0; height: 48px; padding: 0 20px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .shelf { margin: 28px 48px 0; }
+  .shelf-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #2a2622; padding-bottom: 10px; }
+  .shelf h2 { font-family: Georgia, serif; font-size: 42px; font-weight: 400; letter-spacing: -0.04em; }
+  .count { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a8175; }
+  .item { display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid #d9d2c4; }
+  .num { font-size: 13px; color: #8a8175; }
+  .name { font-family: Georgia, serif; font-size: 32px; letter-spacing: -0.03em; }
+  .meta { display: block; margin-top: 4px; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 14px; color: #6e675e; }
+  .price { font-size: 16px; }
+  .next { margin: 16px 48px 0; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a8175; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="mark">mori<i>.</i></div>
+    <nav><span>Studio</span><b>Cửa hàng</b><span>Đặt lịch</span></nav>
+  </header>
+  <section class="slip">
+    <p class="kicker">Yêu cầu món · Nội dung mẫu · Không thanh toán</p>
+    <div class="slip-row">
+      <h1>Để lại tên.<br>Studio sẽ gọi lại.</h1>
+      <label>Tên<div class="line">Lan Anh</div></label>
+      <label>Điện thoại<div class="line">0901 234 567</div></label>
+      <div>
+        <label>Món<div class="line">Sữa rửa mặt gạo</div></label>
+      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;justify-content:flex-end"><button type="button">Gửi yêu cầu</button></div>
+  </section>
+  <section class="shelf">
+    <div class="shelf-head"><h2>Mặt</h2><span class="count">03 món</span></div>
+    <div class="item"><span class="num">01</span><div><span class="name">Sữa rửa mặt gạo</span><span class="meta">Làm sạch dịu · 120 ml</span></div><span class="price">320.000đ</span></div>
+    <div class="item"><span class="num">02</span><div><span class="name">Serum nha đam</span><span class="meta">Cấp ẩm · 30 ml</span></div><span class="price">480.000đ</span></div>
+    <div class="item"><span class="num">03</span><div><span class="name">Mặt nạ đất sét</span><span class="meta">Se khít · 80 ml</span></div><span class="price">390.000đ</span></div>
+  </section>
+  <p class="next">Cơ thể · tiếp theo</p>
+</body>
+</html>

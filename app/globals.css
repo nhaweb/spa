@@ -1,0 +1,294 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, 'Times New Roman', serif;
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.97 0.012 86);
+  --foreground: oklch(0.22 0.025 74);
+  --card: oklch(0.985 0.009 86);
+  --card-foreground: oklch(0.22 0.025 74);
+  --popover: oklch(0.985 0.009 86);
+  --popover-foreground: oklch(0.22 0.025 74);
+  --primary: oklch(0.32 0.055 145);
+  --primary-foreground: oklch(0.97 0.012 86);
+  --secondary: oklch(0.91 0.025 91);
+  --secondary-foreground: oklch(0.22 0.025 74);
+  --muted: oklch(0.91 0.02 86);
+  --muted-foreground: oklch(0.49 0.028 74);
+  --accent: oklch(0.78 0.06 90);
+  --accent-foreground: oklch(0.22 0.025 74);
+  /* Soft terracotta — readable on cream, fits warm spa palette */
+  --destructive: oklch(0.48 0.12 35);
+  --border: oklch(0.83 0.025 84);
+  --input: oklch(0.83 0.025 84);
+  --ring: oklch(0.32 0.055 145);
+  --radius: 0.15rem;
+}
+
+* { @apply border-border outline-ring/50; }
+html { scroll-behavior: smooth; }
+body { @apply bg-background text-foreground; font-family: var(--font-sans); }
+.font-serif { font-family: var(--font-serif); }
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+input, textarea, select {
+  caret-color: var(--primary);
+}
+
+/* ── Motion system — varied scroll reveals ── */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
+  --motion-duration: 0.95s;
+  --motion-duration-slow: 1.2s;
+}
+
+/* Outer shell for clip/wipe — stays unclipped so IntersectionObserver can fire */
+.reveal-host {
+  display: block;
+  min-width: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity var(--motion-duration) var(--ease-out-soft),
+    transform var(--motion-duration) var(--ease-out-expo),
+    filter var(--motion-duration) var(--ease-out-soft),
+    clip-path var(--motion-duration-slow) var(--ease-out-expo);
+  will-change: opacity, transform, filter, clip-path;
+}
+
+.reveal-up {
+  transform: translate3d(0, 36px, 0);
+}
+
+.reveal-down {
+  transform: translate3d(0, -28px, 0);
+}
+
+.reveal-left {
+  transform: translate3d(-40px, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(40px, 0, 0);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-scale {
+  transform: scale(0.92);
+  filter: blur(0);
+}
+
+.reveal-blur {
+  transform: translate3d(0, 18px, 0);
+  filter: blur(14px);
+}
+
+.reveal-soft {
+  transform: translate3d(0, 20px, 0) scale(0.985);
+  filter: blur(4px);
+}
+
+.reveal-skew {
+  transform: translate3d(0, 32px, 0) skewY(2deg);
+  transform-origin: left center;
+}
+
+.reveal-clip {
+  opacity: 1;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    clip-path var(--motion-duration-slow) var(--ease-out-expo),
+    opacity 0.01s;
+}
+
+.reveal-wipe {
+  opacity: 1;
+  clip-path: inset(0 100% 0 0);
+  transition:
+    clip-path var(--motion-duration-slow) var(--ease-out-expo),
+    opacity 0.01s;
+}
+
+.reveal-wipe-y {
+  opacity: 1;
+  clip-path: inset(100% 0 0 0);
+  transition:
+    clip-path 1.15s var(--ease-out-expo),
+    opacity 0.01s;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.reveal-clip.is-visible,
+.reveal-wipe.is-visible,
+.reveal-wipe-y.is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+.hero-enter {
+  animation: hero-fade-up 1.05s var(--ease-out-expo) both;
+}
+
+.hero-enter-delay-1 { animation-delay: 0.12s; }
+.hero-enter-delay-2 { animation-delay: 0.24s; }
+.hero-enter-delay-3 { animation-delay: 0.38s; }
+.hero-enter-delay-4 { animation-delay: 0.5s; }
+
+.hero-image-enter {
+  animation: hero-image-in 1.25s var(--ease-out-expo) 0.2s both;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes faq-open {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mobile-menu-enter {
+  animation: menu-in 0.35s var(--ease-out-soft) both;
+}
+
+.faq-answer-enter {
+  animation: faq-open 0.35s var(--ease-out-soft) both;
+}
+
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out-soft);
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.img-zoom {
+  transition: transform 0.9s var(--ease-out-soft);
+}
+
+.group:hover .img-zoom,
+.img-zoom:hover {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+    transition: none;
+  }
+
+  .hero-enter,
+  .hero-image-enter,
+  .mobile-menu-enter,
+  .faq-answer-enter {
+    animation: none;
+  }
+
+  .img-zoom,
+  .link-underline::after {
+    transition: none;
+  }
+}
